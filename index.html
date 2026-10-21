@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Giselle Oliveira | Dermatologia Clínica e Estética</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nude: {
+                            50: '#FAF7F5',
+                            100: '#F5EFEA',
+                            200: '#E8DCD3',
+                            300: '#DABBB0',
+                            400: '#CBA094',
+                        },
+                        roseGold: '#C59B8B',
+                        roseGoldDark: '#A87B6A',
+                        fendi: '#8A827A',
+                        fendiDark: '#4A4642',
+                        gold: '#D4AF37',
+                        goldLight: '#E8C86B',
+                        champagne: '#F8F4EE',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .gold-gradient {
+            background: linear-gradient(135deg, #D4AF37 0%, #E8C86B 50%, #C59B8B 100%);
+        }
+        .gold-text {
+            background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #A87B6A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-pattern {
+            background-color: #FAF7F5;
+            background-image: radial-gradient(#C59B8B 0.5px, transparent 0.5px), radial-gradient(#C59B8B 0.5px, #FAF7F5 0.5px);
+            background-size: 20px 20px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.90);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(228, 212, 203, 0.6);
+        }
+    </style>
+</head>
+<body class="font-sans text-fendiDark bg-nude-50 antialiased selection:bg-roseGold selection:text-white">
+
+    <!-- HEADER / NAVBAR -->
+    <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md border-b border-nude-200 shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#inicio" class="flex flex-col">
+                    <span class="font-serif text-2xl md:text-3xl tracking-wide text-fendiDark font-semibold">CLÍNICA GISELLE OLIVEIRA</span>
+                    <span class="text-[10px] md:text-xs tracking-[0.25em] text-roseGold font-medium uppercase -mt-1">Dermatologia Clínica e Estética</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="#inicio" class="text-xs uppercase tracking-wider font-semibold text-fendiDark hover:text-roseGold transition-colors">Início</a>
+                    <a href="#especialidades" class="text-xs uppercase tracking-wider font-semibold text-fendiDark hover:text-roseGold transition-colors">Tratamentos</a>
+                    <a href="#sobre" class="text-xs uppercase tracking-wider font-semibold text-fendiDark hover:text-roseGold transition-colors">Sobre</a>
+                    <a href="#recomendador" class="text-xs uppercase tracking-wider font-semibold text-fendiDark hover:text-roseGold transition-colors">Guia Interativo</a>
+                    <a href="#faq" class="text-xs uppercase tracking-wider font-semibold text-fendiDark hover:text-roseGold transition-colors">Dúvidas</a>
+                    <a href="#localizacao" class="text-xs uppercase tracking-wider font-semibold text-fendiDark hover:text-roseGold transition-colors">Localização</a>
+                </nav>
+
+                <!-- CTA Button Desktop -->
+                <div class="hidden lg:flex items-center">
+                    <a href="https://wa.me/553533317656?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20Cl%C3%ADnica%20Giselle%20Oliveira." target="_blank" class="gold-gradient text-white text-xs uppercase tracking-widest font-semibold px-5 py-3 rounded-full shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center space-x-2">
+                        <i class="fab fa-whatsapp text-base"></i>
+                        <span>Agendar Consulta</span>
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" class="text-fendiDark hover:text-roseGold focus:outline-none p-2" aria-label="Abrir menu">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-nude-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" class="mobile-link block px-3 py-2 rounded-md text-sm font-medium text-fendiDark hover:bg-nude-100">Início</a>
+            <a href="#especialidades" class="mobile-link block px-3 py-2 rounded-md text-sm font-medium text-fendiDark hover:bg-nude-100">Tratamentos</a>
+            <a href="#sobre" class="mobile-link block px-3 py-2 rounded-md text-sm font-medium text-fendiDark hover:bg-nude-100">Sobre</a>
+            <a href="#recomendador" class="mobile-link block px-3 py-2 rounded-md text-sm font-medium text-fendiDark hover:bg-nude-100">Guia Interativo</a>
+            <a href="#faq" class="mobile-link block px-3 py-2 rounded-md text-sm font-medium text-fendiDark hover:bg-nude-100">Dúvidas</a>
+            <a href="#localizacao" class="mobile-link block px-3 py-2 rounded-md text-sm font-medium text-fendiDark hover:bg-nude-100">Localização</a>
+            <a href="https://wa.me/553533317656?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="w-full text-center gold-gradient text-white text-xs uppercase tracking-widest font-semibold px-5 py-3 rounded-full shadow flex items-center justify-center space-x-2 mt-4">
+                <i class="fab fa-whatsapp text-lg"></i>
+                <span>Agendar Consulta via WhatsApp</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- BANNER PRINCIPAL (HERO) -->
+    <section id="inicio" class="pt-28 pb-16 md:pt-36 md:pb-24 bg-champagne relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20 pointer-events-none bg-pattern"></div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="space-y-6">
+                <div class="inline-flex items-center space-x-2 bg-nude-200/80 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest text-roseGoldDark">
+                    <i class="fas fa-certificate text-gold"></i>
+                    <span>São Lourenço - MG</span>
+                </div>
+                
+                <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal leading-tight text-fendiDark max-w-4xl mx-auto">
+                    Saúde, Ciência e Elegância para a sua <span class="italic font-semibold gold-text">Pele e Autoimagem</span>
+                </h1>
+                
+                <p class="text-fendi text-sm sm:text-base max-w-2xl mx-auto font-light leading-relaxed">
+                    Atendimento médico especializado em Dermatologia Clínica, Estética e Capilar com protocolos seguros e direcionados às necessidades do seu corpo.
+                </p>
+
+                <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="https://wa.me/553533317656?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="w-full sm:w-auto gold-gradient text-white text-xs uppercase tracking-widest font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 text-center flex items-center justify-center space-x-2">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                        <span>Agendar pelo WhatsApp (+55 35 3331-7656)</span>
+                    </a>
+                    <a href="#especialidades" class="w-full sm:w-auto bg-white border border-roseGold text-roseGoldDark hover:bg-roseGold hover:text-white text-xs uppercase tracking-widest font-semibold px-8 py-4 rounded-full transition-all text-center">
+                        Ver Todos os Tratamentos
+                    </a>
+                </div>
+
+                <!-- Features Badges -->
+                <div class="pt-12 border-t border-nude-200/80 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                    <div class="p-4 rounded-2xl bg-white/70 border border-nude-200/60 shadow-sm">
+                        <i class="fas fa-stethoscope text-2xl text-roseGold mb-2"></i>
+                        <p class="font-serif text-lg font-bold text-fendiDark">Dermatologia Clínica</p>
+                        <p class="text-[11px] text-fendi uppercase tracking-wider mt-1">Diagnóstico e Saúde Cutânea</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-white/70 border border-nude-200/60 shadow-sm">
+                        <i class="fas fa-sparkles text-2xl text-roseGold mb-2"></i>
+                        <p class="font-serif text-lg font-bold text-fendiDark">Procedimentos Estéticos</p>
+                        <p class="text-[11px] text-fendi uppercase tracking-wider mt-1">Sutileza e Naturalidade</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-white/70 border border-nude-200/60 shadow-sm">
+                        <i class="fas fa-leaf text-2xl text-roseGold mb-2"></i>
+                        <p class="font-serif text-lg font-bold text-fendiDark">Terapia Capilar</p>
+                        <p class="text-[11px] text-fendi uppercase tracking-wider mt-1">Fortalecimento e Regeneração</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRATAMENTOS E ESPECIALIDADES -->
+    <section id="especialidades" class="py-20 bg-nude-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-3 mb-12">
+                <span class="text-xs uppercase tracking-[0.2em] text-roseGold font-semibold">Nossos Serviços</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-fendiDark font-medium">Procedimentos & Tratamentos</h2>
+                <div class="w-16 h-0.5 gold-gradient mx-auto"></div>
+                <p class="text-fendi font-light text-sm">
+                    Escolha a categoria desejada para conferir as soluções oferecidas pela clínica.
+                </p>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-10">
+                <button onclick="switchTab('clinica')" id="tab-clinica" class="tab-btn px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-roseGold text-white shadow-md">
+                    <i class="fas fa-user-md mr-2"></i>Dermatologia Clínica
+                </button>
+                <button onclick="switchTab('facil')" id="tab-facil" class="tab-btn px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-white text-fendi hover:bg-nude-200 border border-nude-200">
+                    <i class="fas fa-sparkles mr-2"></i>Estética Facial
+                </button>
+                <button onclick="switchTab('corporal')" id="tab-corporal" class="tab-btn px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-white text-fendi hover:bg-nude-200 border border-nude-200">
+                    <i class="fas fa-child mr-2"></i>Estética Corporal
+                </button>
+                <button onclick="switchTab('capilar')" id="tab-capilar" class="tab-btn px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-white text-fendi hover:bg-nude-200 border border-nude-200">
+                    <i class="fas fa-cut mr-2"></i>Tratamentos Capilares
+                </button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="mt-8">
+                <!-- CLINICA -->
+                <div id="content-clinica" class="tab-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-nude-200 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-full bg-nude-100 flex items-center justify-center text-roseGoldDark mb-4">
+                                <i class="fas fa-search-plus text-lg"></i>
+                            </div>
+                            <h3 class="font-serif text-xl font-medium text-fendiDark mb-2">Mapeamento & Dermatoscopia</h3>
+                            <p class="text-xs text-fendi leading-relaxed font-light mb-4">Acompanhamento e avaliação preventiva de manchas, sinais e pintas para prevenção da saúde da pele.</p>
+                        </div>
+                        <a href="https://wa.me/553533317656?text=Gostaria%20de%20agendar%20uma%20consulta%20de%20Mapeamento%20de%20Pintas" target="_blank" class="text-xs font-semibold text-roseGold hover:text-roseGoldDark flex items-center space-x-1">
+                            <span>Consultar via WhatsApp</span> <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-nude-200 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-full bg-nude-100 flex items-center justify-center text-roseGoldDark mb-4">
+                                <i class="fas fa-shield-alt text-lg"></i>
+                            </div>
+                            <h3 class="font-serif text-xl font-medium text-fendiDark mb-2">Tratamento de Acne & Melasma</h3>
+                            <p class="text-xs text-fendi leading-relaxed font-light mb-4">Diagnóstico dermatológico e protocolos terapêuticos específicos para o controle inflamatório e manchas.</p>
+                        </div>
+                        <a href="https://wa.me/553533317656?text=Gostaria%20de%20saber%20mais%20sobre%20tratamento%20para%20Acne%20e%20Melasma" target="_blank" class="text-xs font-semibold text-roseGold hover:text-roseGoldDark flex items-center space-x-1">
+                            <span>Consultar via WhatsApp</span> <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-nude-200 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-full bg-nude-100 flex items-center justify-center text-roseGoldDark mb-4">
+                                <i class="fas fa-notes-medical text-lg"></i>
+                            </div>
+                            <h3 class="font-serif text-xl font-medium text-fendiDark mb-2">Dermatite, Rosácea & Psoríase</h3>
+                            <p class="text-xs text-fendi leading-relaxed font-light mb-4">Condutas personalizadas para o alívio de sintomas e manutenção do bem-estar em patologias inflamatórias.</p>
+                        </div>
+                        <a href="https://wa.me/553533317656?text=Gostaria%20de%20agendar%20uma%20consulta%20dermatol%C3%B3gica" target="_blank" class="text-xs font-semibold text-roseGold hover:text-roseGoldDark flex items-center space-x-1">
+                            <span>Consultar via WhatsApp</span> <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- FACIAL -->
+                <div id="content-facil" class="tab-content hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-nude-200 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-full bg-nude-100 flex items-center justify-center text-roseGoldDark mb-4">
+                                <i class="fas fa-smile text-lg"></i>
+                            </div>
+                            <h3 class="font-serif text-xl font-medium text-fendiDark mb-2">Toxina Botulínica</h3>
+                            <p class="text-xs text-fendi leading-relaxed font-light mb-4">Aplicação precisa para suavizar rugas e linhas dinâmicas no terço superior da face mantendo a expressividade.</p>
+                        </div>
+                        <a href="https://wa.me/553533317656?text=Gostaria%20de%20saber%20mais%20sobre%20Toxina%20Botul%C3%ADnica" target="_blank" class="text-xs font-semibold text-roseGold hover:text-roseGoldDark flex items-center space-x-1">
+                            <span>Consultar via WhatsApp</span> <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-nude-200 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-full bg-nude-100 flex items-center justify-center text-roseGoldDark mb-4">
+                                <i class="fas fa-gem text-lg"></i>
+                            </div>
+                            <h3 class="font-serif text-xl font-medium text-fendiDark mb-2">Preenchimento com Ácido Hialurônico</h3>
+                            <p class="text-xs text-fendi leading-relaxed font-light mb-4">Restauração de volumes perdidos, sulcos nasogenianos e redefinição sutil de contornos faciais.</p>
+                        </div>
+                        <a href="https://wa.me/553533317656?text=Gostaria%20de%20saber%20mais%20sobre%20Preenchimento" target="_blank" class="text-xs font-semibold text-roseGold hover:text-roseGoldDark flex items-center space-x-1">
+                            <span>Consultar via WhatsApp</span> <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-nude-200 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-full bg-nude-100 flex items-center justify-center text-roseGoldDark mb-4">
+                                <i class="fas fa-magic text-lg"></i>
+                            </div>
+                            <h3 class="font-serif text-xl font-medium text-fendiDark mb-2">Bioestimuladores de Colágeno</h3>
+                            <p class="text-xs text-fendi leading-relaxed font-light mb-4">Estímulo biológico para firmeza e recuperação do turgor e densidade da pele facial a médio e longo prazo.</p>
+                        </div>
+                        <a href="https://wa.me/553533317656?text=Gostaria%20de%20saber%20mais%20sobre%20Bioestimuladores" target="_blank" class="text-xs font-semibold text-roseGold hover:text-roseGoldDark flex items-center space-x-1">
+                            <span>Consultar via WhatsApp</span> <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CORPORAL -->
+                <div id="content-corporal" class="tab-content hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-nude-200 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-full bg-nude-100 flex items-center justify-center text-roseGoldDark mb-4">
+                                <i class="fas fa-feather text-lg"></i>
+                            </div>
+                            <h3 class="font-serif text-xl font-medium text-fendiDark mb-2">Bioestímulo Corporal</h3>
+                            <p class="text-xs text-fendi leading-relaxed font-light mb-4">Tratamento direcionado à flacidez do pescoço, colo, abdômen, coxas e braços.</p>
+                        </div>
+                        <a href="https://wa.me/553533317656?text=Gostaria%20de%20saber%20mais%20sobre%20Bioestimulo%20Corporal" target="_blank" class="text-xs font-semibold text-roseGold hover:text-roseGoldDark flex items-center space-x-1">
+                            <span>Consultar via WhatsApp</span> <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-nude-200 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-full bg-nude-100 flex items-center justify-center text-roseGoldDark mb-4">
+                                <i class="fas fa-vial text-lg"></i>
+                            </div>
+                            <h3 class="font-serif text-xl font-medium text-fendiDark mb-2">Enzimoterapia & Gordura Localizada</h3>
+                            <p class="text-xs text-fendi leading-relaxed font-light mb-4">Aplicação direcionada para auxílio na redução de medidas e remodelação do contorno corporal.</p>
+                        </div>
+                        <a href="https://wa.me/553533317656?text=Gostaria%20de%20saber%20mais%20sobre%20Tratamento%20Corporal" target="_blank" class="text-xs font-semibold text-roseGold hover:text-roseGoldDark flex items-center space-x-1">
+                            <span>Consultar via WhatsApp</span> <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CAPILAR -->
+                <div id="content-capilar" class="tab-content hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-nude-200 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-full bg-nude-100 flex items-center justify-center text-roseGoldDark mb-4">
+                                <i class="fas fa-syringe text-lg"></i>
+                            </div>
+                            <h3 class="font-serif text-xl font-medium text-fendiDark mb-2">Microinfusão Capilar (MMP)</h3>
+                            <p class="text-xs text-fendi leading-relaxed font-light mb-4">Injeção direta de fatores nutritivos no couro cabeludo para desacelerar a queda e fortalecer a raiz.</p>
+                        </div>
+                        <a href="https://wa.me/553533317656?text=Gostaria%20de%20saber%20mais%20sobre%20Tratamento%20Capilar" target="_blank" class="text-xs font-semibold text-roseGold hover:text-roseGoldDark flex items-center space-x-1">
+                            <span>Consultar via WhatsApp</span> <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-nude-200 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-full bg-nude-100 flex items-center justify-center text-roseGoldDark mb-4">
+                                <i class="fas fa-user-check text-lg"></i>
+                            </div>
+                            <h3 class="font-serif text-xl font-medium text-fendiDark mb-2">Tratamento para Alopecias</h3>
+                            <p class="text-xs text-fendi leading-relaxed font-light mb-4">Acompanhamento clínico individualizado para calvície masculina e feminina.</p>
+                        </div>
+                        <a href="https://wa.me/553533317656?text=Gostaria%20de%20agendar%20uma%20consulta%20para%20Queda%20Capilar" target="_blank" class="text-xs font-semibold text-roseGold hover:text-roseGoldDark flex items-center space-x-1">
+                            <span>Consultar via WhatsApp</span> <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE A CLÍNICA -->
+    <section id="sobre" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-3 mb-12">
+                <span class="text-xs uppercase tracking-[0.2em] text-roseGold font-semibold">Estrutura e Conceito</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-fendiDark font-medium">Sobre a Clínica Giselle Oliveira</h2>
+                <div class="w-16 h-0.5 gold-gradient mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-fendi leading-relaxed font-light text-sm sm:text-base mb-12">
+                <div class="bg-nude-50 p-6 rounded-2xl border border-nude-200">
+                    <h3 class="font-serif text-xl font-semibold text-fendiDark mb-3">Atendimento Humanizado</h3>
+                    <p class="text-xs sm:text-sm">
+                        A Clínica Giselle Oliveira foi estruturada para oferecer uma experiência acolhedora, pautada na ética médica, transparência e respeito à singularidade de cada paciente.
+                    </p>
+                </div>
+                <div class="bg-nude-50 p-6 rounded-2xl border border-nude-200">
+                    <h3 class="font-serif text-xl font-semibold text-fendiDark mb-3">Tecnologia & Segurança</h3>
+                    <p class="text-xs sm:text-sm">
+                        Utilizamos metodologias consagradas e equipamentos de alta precisão para realizar diagnósticos detalhados e planejar condutas terapêuticas eficazes e seguras.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pillars Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="p-6 rounded-2xl bg-nude-50 border border-nude-200 text-center">
+                    <div class="w-12 h-12 rounded-full bg-roseGold/20 flex items-center justify-center text-roseGoldDark mx-auto mb-4">
+                        <i class="fas fa-clinic-medical text-xl"></i>
+                    </div>
+                    <h4 class="font-serif text-lg font-semibold text-fendiDark mb-2">Ambiente Exclusivo</h4>
+                    <p class="text-xs text-fendi font-light">Espaço privativo em São Lourenço projetado para o seu máximo conforto.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-nude-50 border border-nude-200 text-center">
+                    <div class="w-12 h-12 rounded-full bg-roseGold/20 flex items-center justify-center text-roseGoldDark mx-auto mb-4">
+                        <i class="fas fa-microscope text-xl"></i>
+                    </div>
+                    <h4 class="font-serif text-lg font-semibold text-fendiDark mb-2">Base Científica</h4>
+                    <p class="text-xs text-fendi font-light">Procedimentos embasados na literatura médica dermatológica.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-nude-50 border border-nude-200 text-center">
+                    <div class="w-12 h-12 rounded-full bg-roseGold/20 flex items-center justify-center text-roseGoldDark mx-auto mb-4">
+                        <i class="fas fa-heart text-xl"></i>
+                    </div>
+                    <h4 class="font-serif text-lg font-semibold text-fendiDark mb-2">Cuidado Contínuo</h4>
+                    <p class="text-xs text-fendi font-light">Acompanhamento atento antes, durante e após a realização dos procedimentos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GUIA INTERATIVO / QUIZ -->
+    <section id="recomendador" class="py-20 bg-champagne">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center space-y-3 mb-10">
+                <span class="text-xs uppercase tracking-[0.2em] text-roseGold font-semibold">Orientação Rápida</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-fendiDark font-medium">Guia Interativo de Tratamentos</h2>
+                <p class="text-fendi font-light text-sm">Selecione seu objetivo para receber orientações iniciais de agendamento.</p>
+            </div>
+
+            <div class="glass-card p-6 sm:p-8 rounded-3xl shadow-md border border-nude-200">
+                <!-- Step 1 -->
+                <div id="quiz-step-1">
+                    <label class="block text-xs uppercase tracking-wider text-fendi font-semibold mb-4 text-center">Qual a sua principal preocupação no momento?</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <button onclick="selectGoal('rugas')" class="p-4 rounded-xl border border-nude-200 bg-white hover:border-roseGold hover:bg-nude-50 transition-all text-left flex items-center space-x-3">
+                            <i class="fas fa-smile text-roseGold text-lg"></i>
+                            <div>
+                                <p class="text-sm font-semibold text-fendiDark">Rugas e Linhas de Expressão</p>
+                                <p class="text-[11px] text-fendi">Suavização e prevenção</p>
+                            </div>
+                        </button>
+
+                        <button onclick="selectGoal('manchas')" class="p-4 rounded-xl border border-nude-200 bg-white hover:border-roseGold hover:bg-nude-50 transition-all text-left flex items-center space-x-3">
+                            <i class="fas fa-sun text-roseGold text-lg"></i>
+                            <div>
+                                <p class="text-sm font-semibold text-fendiDark">Manchas e Melasma</p>
+                                <p class="text-[11px] text-fendi">Uniformização do tom da pele</p>
+                            </div>
+                        </button>
+
+                        <button onclick="selectGoal('flacidez')" class="p-4 rounded-xl border border-nude-200 bg-white hover:border-roseGold hover:bg-nude-50 transition-all text-left flex items-center space-x-3">
+                            <i class="fas fa-leaf text-roseGold text-lg"></i>
+                            <div>
+                                <p class="text-sm font-semibold text-fendiDark">Flacidez Facial ou Corporal</p>
+                                <p class="text-[11px] text-fendi">Estímulo biológico de colágeno</p>
+                            </div>
+                        </button>
+
+                        <button onclick="selectGoal('queda')" class="p-4 rounded-xl border border-nude-200 bg-white hover:border-roseGold hover:bg-nude-50 transition-all text-left flex items-center space-x-3">
+                            <i class="fas fa-cut text-roseGold text-lg"></i>
+                            <div>
+                                <p class="text-sm font-semibold text-fendiDark">Queda de Cabelo / Alopecias</p>
+                                <p class="text-[11px] text-fendi">Saúde e estímulo dos fios</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2 (Result) -->
+                <div id="quiz-result" class="hidden space-y-6 text-center">
+                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-roseGold/20 text-roseGoldDark mb-1">
+                        <i class="fas fa-check text-xl"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-medium text-fendiDark" id="result-title">Procedimentos Indicados</h3>
+                    <p class="text-xs text-fendi max-w-md mx-auto" id="result-desc"></p>
+
+                    <div class="bg-white p-4 rounded-xl border border-nude-200 text-left max-w-lg mx-auto space-y-2" id="result-list"></div>
+
+                    <div class="pt-2 flex flex-col sm:flex-row justify-center gap-4">
+                        <button onclick="resetQuiz()" class="px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider text-fendi hover:bg-nude-200 transition-colors">
+                            Voltar / Alterar
+                        </button>
+                        <a id="result-whatsapp-btn" href="#" target="_blank" class="gold-gradient text-white text-xs uppercase tracking-widest font-semibold px-6 py-3 rounded-full shadow hover:shadow-lg transition-all flex items-center justify-center space-x-2">
+                            <i class="fab fa-whatsapp text-lg"></i>
+                            <span>Agendar Avaliação no WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ (PERGUNTAS FREQUENTES) -->
+    <section id="faq" class="py-20 bg-nude-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs uppercase tracking-[0.2em] text-roseGold font-semibold">Tire suas dúvidas</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-fendiDark font-medium">Perguntas Frequentes</h2>
+            </div>
+
+            <div class="space-y-4" id="faq-accordion">
+                <div class="bg-white rounded-2xl border border-nude-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq('faq-1')" class="w-full text-left p-5 flex justify-between items-center focus:outline-none">
+                        <span class="font-medium text-sm text-fendiDark">Qual o horário de atendimento da clínica?</span>
+                        <i id="icon-faq-1" class="fas fa-chevron-down text-roseGold text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-1" class="hidden p-5 pt-0 text-xs text-fendi leading-relaxed border-t border-nude-100">
+                        Atendemos de Segunda a Sexta-feira, das 08:00 às 18:00.
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-nude-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq('faq-2')" class="w-full text-left p-5 flex justify-between items-center focus:outline-none">
+                        <span class="font-medium text-sm text-fendiDark">Qual o endereço exato da clínica em São Lourenço?</span>
+                        <i id="icon-faq-2" class="fas fa-chevron-down text-roseGold text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-2" class="hidden p-5 pt-0 text-xs text-fendi leading-relaxed border-t border-nude-100">
+                        Estamos localizados na Rua XV de Novembro, 34, São Lourenço - MG, CEP 37470-000, Brasil.
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-nude-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq('faq-3')" class="w-full text-left p-5 flex justify-between items-center focus:outline-none">
+                        <span class="font-medium text-sm text-fendiDark">Como posso agendar uma consulta?</span>
+                        <i id="icon-faq-3" class="fas fa-chevron-down text-roseGold text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-3" class="hidden p-5 pt-0 text-xs text-fendi leading-relaxed border-t border-nude-100">
+                        Os agendamentos são feitos de forma rápida pelo WhatsApp no número +55 35 3331-7656 ou pelo formulário de contato neste site.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCALIZAÇÃO & CONTATO REAL -->
+    <section id="localizacao" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Dados Reais -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <span class="text-xs uppercase tracking-[0.2em] text-roseGold font-semibold">São Lourenço - MG</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl text-fendiDark font-medium mt-1">Localização & Contato</h2>
+                        <p class="text-xs text-fendi mt-2 font-light">Estamos à disposição para receber você.</p>
+                    </div>
+
+                    <div class="space-y-4 text-xs text-fendi">
+                        <div class="flex items-start space-x-3 bg-nude-50 p-4 rounded-xl border border-nude-200">
+                            <i class="fas fa-map-marker-alt text-roseGold text-lg mt-0.5"></i>
+                            <div>
+                                <strong class="text-fendiDark block text-sm">Endereço Exato:</strong>
+                                Rua XV de Novembro, 34, São Lourenço - MG<br>CEP: 37470-000, Brasil
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3 bg-nude-50 p-4 rounded-xl border border-nude-200">
+                            <i class="fas fa-clock text-roseGold text-lg mt-0.5"></i>
+                            <div>
+                                <strong class="text-fendiDark block text-sm">Horário de Funcionamento:</strong>
+                                Segunda a Sexta-feira: 08:00 às 18:00
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3 bg-nude-50 p-4 rounded-xl border border-nude-200">
+                            <i class="fab fa-whatsapp text-roseGold text-lg mt-0.5"></i>
+                            <div>
+                                <strong class="text-fendiDark block text-sm">Telefone / WhatsApp:</strong>
+                                <a href="https://wa.me/553533317656" target="_blank" class="text-roseGoldDark font-semibold hover:underline">+55 35 3331-7656</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/553533317656?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20de%20agendamento." target="_blank" class="w-full gold-gradient text-white text-xs uppercase tracking-widest font-semibold py-4 rounded-xl shadow hover:shadow-md transition-all text-center flex items-center justify-center space-x-2">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                        <span>Falar com Atendimento no WhatsApp</span>
+                    </a>
+                </div>
+
+                <!-- Google Maps Embed -->
+                <div class="lg:col-span-7 flex flex-col justify-between">
+                    <div class="rounded-2xl overflow-hidden border border-nude-200 shadow-md h-full min-h-[350px] bg-nude-100">
+                        <iframe 
+                            title="Mapa da Clínica Giselle Oliveira"
+                            class="w-full h-full border-0 min-h-[380px]"
+                            src="https://maps.google.com/maps?q=Rua%20XV%20de%20Novembro%2C%2034%2C%20S%C3%A3o%20Louren%C3%A7o%20-%20MG%2C%2037470-000&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-fendiDark text-white pt-12 pb-8 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-white/10">
+                <div class="space-y-3">
+                    <span class="font-serif text-xl tracking-wide font-semibold block text-white">CLÍNICA GISELLE OLIVEIRA</span>
+                    <p class="text-xs text-nude-200 font-light leading-relaxed">
+                        Dermatologia Clínica e Estética em São Lourenço - MG.
+                    </p>
+                </div>
+
+                <div class="space-y-2 text-xs text-nude-200 font-light">
+                    <h4 class="font-semibold uppercase tracking-widest text-goldLight mb-2">Informações Reais</h4>
+                    <p><i class="fas fa-map-marker-alt text-goldLight mr-1.5"></i> Rua XV de Novembro, 34, São Lourenço - MG</p>
+                    <p><i class="fas fa-clock text-goldLight mr-1.5"></i> Segunda a Sexta: 08:00 às 18:00</p>
+                    <p><i class="fab fa-whatsapp text-goldLight mr-1.5"></i> +55 35 3331-7656</p>
+                </div>
+
+                <div class="space-y-2 text-xs text-nude-200 font-light">
+                    <h4 class="font-semibold uppercase tracking-widest text-goldLight mb-2">Agendamentos</h4>
+                    <p>Entre em contato direto pelo WhatsApp oficial da clínica para marcar seu horário.</p>
+                    <a href="https://wa.me/553533317656" target="_blank" class="inline-flex items-center space-x-2 text-goldLight font-semibold hover:underline mt-2">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>wa.me/553533317656</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="pt-6 text-center text-[11px] text-nude-200">
+                <p>&copy; 2026 Clínica Giselle Oliveira. Todos os direitos reservados. | São Lourenço - MG</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOAT WHATSAPP BUTTON -->
+    <a href="https://wa.me/553533317656?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300" aria-label="WhatsApp Directo">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Tabs Handler
+        function switchTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const contents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.classList.remove('bg-roseGold', 'text-white', 'shadow-md');
+                tab.classList.add('bg-white', 'text-fendi', 'hover:bg-nude-200', 'border', 'border-nude-200');
+            });
+
+            contents.forEach(content => {
+                content.classList.add('hidden');
+            });
+
+            const activeTab = document.getElementById(`tab-${tabName}`);
+            const activeContent = document.getElementById(`content-${tabName}`);
+
+            if(activeTab && activeContent) {
+                activeTab.classList.remove('bg-white', 'text-fendi', 'hover:bg-nude-200', 'border', 'border-nude-200');
+                activeTab.classList.add('bg-roseGold', 'text-white', 'shadow-md');
+                activeContent.classList.remove('hidden');
+            }
+        }
+
+        // FAQ Accordion Handler
+        function toggleFaq(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById(`icon-${id}`);
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // Quiz Logic
+        const quizData = {
+            rugas: {
+                title: 'Tratamentos Indicados para Linhas e Rugas',
+                desc: 'Procedimentos para suavizar marcas do tempo com aspecto natural:',
+                items: [
+                    'Toxina Botulínica (Preventivo e Suavizador)',
+                    'Bioestimuladores de Colágeno',
+                    'Preenchimento em pontos estratégicos'
+                ],
+                whatsappMsg: 'Ol%C3%A1!%20Fiz%20o%20teste%20no%20site%20e%20gostaria%20de%20consultar%20sobre%20tratamentos%20para%20Rugas.'
+            },
+            manchas: {
+                title: 'Tratamentos para Manchas e Uniformização',
+                desc: 'Opções dermatológicas para tonalidade da pele:',
+                items: [
+                    'Peelings Químicos Especializados',
+                    'Acompanhamento Dermatológico de Melasma',
+                    'Protocolos Tópicos e Clínicos'
+                ],
+                whatsappMsg: 'Ol%C3%A1!%20Fiz%20o%20teste%20no%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20Tratamento%20de%20Manchas.'
+            },
+            flacidez: {
+                title: 'Estímulo de Colágeno e Firmeza',
+                desc: 'Procedimentos para sustentação facial e corporal:',
+                items: [
+                    'Bioestimuladores de Colágeno (Facial/Corporal)',
+                    'Protocolos de Enzimoterapia'
+                ],
+                whatsappMsg: 'Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20para%20avaliar%20Bioestimulo%20de%20Col%C3%A1geno.'
+            },
+            queda: {
+                title: 'Saúde Capilar e Alopecias',
+                desc: 'Protocolos para restauração do couro cabeludo:',
+                items: [
+                    'Microinfusão Capilar (MMP)',
+                    'Acompanhamento Clínico de Calvície/Queda'
+                ],
+                whatsappMsg: 'Ol%C3%A1!%20Tenho%20interesse%20em%20consulta%20para%20Tratamento%20Capilar.'
+            }
+        };
+
+        function selectGoal(goalKey) {
+            const data = quizData[goalKey];
+            const step1 = document.getElementById('quiz-step-1');
+            const result = document.getElementById('quiz-result');
+            const title = document.getElementById('result-title');
+            const desc = document.getElementById('result-desc');
+            const list = document.getElementById('result-list');
+            const waBtn = document.getElementById('result-whatsapp-btn');
+
+            title.innerText = data.title;
+            desc.innerText = data.desc;
+            
+            list.innerHTML = '';
+            data.items.forEach(item => {
+                const li = document.createElement('div');
+                li.className = 'flex items-center space-x-2 text-xs text-fendiDark py-1';
+                li.innerHTML = `<i class="fas fa-check-circle text-roseGold"></i> <span>${item}</span>`;
+                list.appendChild(li);
+            });
+
+            waBtn.href = `https://wa.me/553533317656?text=${data.whatsappMsg}`;
+
+            step1.classList.add('hidden');
+            result.classList.remove('hidden');
+        }
+
+        function resetQuiz() {
+            document.getElementById('quiz-step-1').classList.remove('hidden');
+            document.getElementById('quiz-result').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
